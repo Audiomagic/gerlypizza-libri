@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GerlyPizza Edizioni — Tutti i Libri</title>
+<meta name="description" content="Catalogo completo dei libri GerlyPizza Edizioni: calcio, sport, scienza e avventure per giovani lettori. Disponibili su Amazon.">
+<style>
+  :root {
+    --green: #1db954;
+    --orange: #ff6b35;
+    --yellow: #ffd23f;
+    --dark: #14181f;
+    --card-bg: #1f2530;
+    --text: #f5f7fa;
+    --muted: #9aa5b1;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: linear-gradient(180deg, var(--dark) 0%, #1a2030 100%);
+    color: var(--text);
+  }
+  header {
+    text-align: center;
+    padding: 48px 20px 28px;
+    background: linear-gradient(135deg, var(--orange), var(--green));
+    box-shadow: 0 4px 24px rgba(0,0,0,0.25);
+  }
+  header h1 {
+    margin: 0;
+    font-size: clamp(28px, 6vw, 48px);
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  }
+  header p {
+    margin: 10px 0 0;
+    font-size: clamp(14px, 2.5vw, 18px);
+    color: rgba(255,255,255,0.92);
+  }
+  .badge {
+    display: inline-block;
+    margin-top: 14px;
+    padding: 6px 16px;
+    background: rgba(0,0,0,0.25);
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 14px;
+  }
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    padding: 24px 16px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .nav-pill {
+    background: var(--card-bg);
+    color: var(--text);
+    text-decoration: none;
+    padding: 8px 18px;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 14px;
+    border: 1px solid rgba(255,255,255,0.08);
+    transition: transform .15s ease, background .15s ease;
+  }
+  .nav-pill:hover {
+    background: var(--green);
+    transform: translateY(-2px);
+  }
+  .nav-pill .count {
+    color: var(--yellow);
+    font-weight: 800;
+    margin-left: 4px;
+  }
+  .nav-pill:hover .count { color: var(--dark); }
+  main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px 20px 60px;
+  }
+  .lang-section {
+    margin-top: 46px;
+  }
+  .lang-title {
+    font-size: clamp(22px, 4vw, 30px);
+    border-left: 6px solid var(--orange);
+    padding-left: 14px;
+    margin-bottom: 22px;
+  }
+  .lang-title .count {
+    font-size: 14px;
+    color: var(--muted);
+    font-weight: 500;
+    margin-left: 8px;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+    gap: 18px;
+  }
+  .card {
+    display: flex;
+    flex-direction: column;
+    background: var(--card-bg);
+    border-radius: 14px;
+    overflow: hidden;
+    text-decoration: none;
+    color: var(--text);
+    border: 1px solid rgba(255,255,255,0.06);
+    transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+  }
+  .card:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.35);
+    border-color: var(--green);
+  }
+  .cover-wrap {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .cover-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 8px;
+  }
+  .cover-wrap.noimg {
+    background: linear-gradient(135deg, var(--orange), var(--yellow));
+  }
+  .cover-wrap.noimg img { display: none; }
+  .card-body {
+    padding: 12px 14px 14px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .card-title {
+    font-size: 13.5px;
+    line-height: 1.35;
+    margin: 0;
+    font-weight: 600;
+    flex: 1;
+  }
+  .card-cta {
+    font-size: 12px;
+    font-weight: 800;
+    color: var(--green);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  footer {
+    text-align: center;
+    padding: 30px 20px 50px;
+    color: var(--muted);
+    font-size: 13px;
+  }
+  footer a { color: var(--orange); text-decoration: none; font-weight: 700; }
+</style>
+</head>
+<body>
+<header>
+  <h1>⚽ GerlyPizza Edizioni 📚</h1>
+  <p>Libri per giovani tifosi: calcio, sport, scienza e avventure</p>
+  <span class="badge">50 libri disponibili su Amazon</span>
+</header>
+
+<nav>
+<a href="#it" class="nav-pill">🇮🇹 Italiano <span class="count">33</span></a>
+<a href="#es" class="nav-pill">🇪🇸 Español <span class="count">10</span></a>
+<a href="#en" class="nav-pill">🇬🇧 English <span class="count">2</span></a>
+<a href="#de" class="nav-pill">🇩🇪 Deutsch <span class="count">4</span></a>
+<a href="#fr" class="nav-pill">🇫🇷 Français <span class="count">1</span></a>
+</nav>
+
+<main>
+<section id="it" class="lang-section">
+  <h2 class="lang-title">🇮🇹 Italiano <span class="count">33 libri</span></h2>
+  <div class="grid">
+    <a class="card" href="https://www.amazon.it/dp/B0GZH63FH2" target="_blank" rel="noopener">
+      <div class="cover-wrap"><img src="https://m.media-amazon.com/images/P/B0GZH63FH2.01.LZZZZZZZ.jpg" alt="INTERISTA Campione d&#x27;Italia &#x27;25-&#x27;26: La Storia dei 21 Scudetti NERAZZURRI" loading="lazy" onerror="this.parentElement.classList.add('noimg')"></div>
+      <div class="card-body">
+        <p class="card-title">INTERISTA Campione d&#x27;Italia &#x27;25-&#x27;26: La Storia dei 21 Scudetti NERAZZURRI</p>
+        <span class="card-cta">Vedi su Amazon →</span>
+      </div>
+    </a>
+    <a class="card" href="https://www.amazon.it/dp/B0GWHY4FW2" target="_blank" rel="noopener">
+      <div class="cover-wrap"><img src="https://m.media-amazon.com/images/P/B0GWHY4FW2.01.LZZZZZZZ.jpg" alt="Mondiali 2026 - La Guida completa alla Coppa del Mondo di Calcio" loading="lazy" onerror="this.parentElement.classList.add('noimg')"></div>
+      <div class="card-body">
+        <p class="card-title">Mondiali 2026 - La Guida completa alla Coppa del Mondo di Calcio</p>
+        <span class="card-cta">Vedi su Amazon →</span>
+      </div>
+    </a>
+    <a class="card" href="https://www.amazon.it/dp/B0G5G2S2TX" target="_blank" rel="noopener">
+      <div class="cover-wrap"><img src="https://m.media-amazon.com/images/P/B0G5G2S2TX.01.LZZZZZZZ.jpg" alt="Il Fiuto del GOL - il Manuale del Giovane ATTACCANTE" loading="lazy" onerror="this.parentElement.classList.add('noimg')"></div>
+      <div class="card-body">
+        <p class="card-title">Il Fiuto del GOL - il Manuale del Giovane ATTACCANTE</p>
+        <span class="card-cta">Vedi su Amazon →</span>
+      </div>
+    </a>
+    <a class="card" href="https://www.amazon.it/dp/B0G5DTK5YY" target="_blank" rel="noopener">
+      <div class="cover-wrap"><img src="https://m.media-amazon.com/images/P/B0G5DTK5YY.01.LZZZZZZZ.jpg" alt="Il Sogno di un bambino JUVENTINO - Romanzo per Piccoli Tifosi 8-12 anni" loading="lazy" onerror="this.parentElement.classList.add('noimg')"></div>
+      <div class="card-body">
+        <p class="card-title">Il Sogno di un bambino JUVENTINO - Romanzo per Piccoli Tifosi 8-12 anni</p>
+        <span class="card-cta">Vedi su Amazon →</span>
+      </div>
+    </a>
+    <a class="card" href="https://www.amazon.it/dp/B0G5G1964D" target="_blank" rel="noopener">
+      <div class="cover-wrap"><img src="https://m.media-amazon.com/images/P/B0G5G1964D.01.LZZZZZZZ.jpg" alt="Il Sogno di un bambino INTERISTA - Romanzo per Piccoli Tifosi 8-12 anni" loading="lazy" onerror="this.parentElement.classList.add('noimg')"></div>
+      <div class="card-body">
+        <p class="card-title">Il Sogno di un bambino INTERISTA - Romanzo per Piccoli Tifosi 8-12 anni</p>
+        <span class="card-cta">Vedi su Amazon →</span>
+      </div>
+    </a>
+    <a class="card" href="https://www.amazon.it/dp/B0G5DYGZD3" target="_blank" rel="noopener">
+      <div class="cover-wrap"><img src="https://m.media-amazon.com/images/P/B0G5DYGZD3.01.LZZZZZZZ.jpg" alt="Il Sogno di un bambino MILANISTA - Romanzo per Piccoli Tifosi 8-12 anni" loading="lazy" onerror="this.parentElement.classList.add('noimg')"></div>
+      <div class="card-body">
+        <p class="card-title">Il Sogno di un bambino MILANISTA - Romanzo per Piccoli Tifosi 8-12 anni</p>
+        <span class="card-cta">Vedi su Amazon →</span>
+      </div>
+    </a>
+    <a class="card" href="https://www.amazon.it/dp/B0G4GKHQXZ" target="_blank" rel="noopener">
+      <div class="cover-wrap"><img src="https://m.media-amazon.com/images/P/B0G4GKHQXZ.01.LZZZZZZZ.jpg" alt="Tra i Pali - il Manuale del Giovane PORTIERE" loading="lazy" onerror="this.parentElement.classList.add('noimg')"></div>
+      <div class="card-body">
+        <p class="card-title">Tra i Pali - il Manuale del Giovane PORTIERE</p>
+        <span class="card-cta">Vedi su Amazon →</span>
+      </div>
+    </a>
+    <a class="card" href="https://www.amazon.it/dp/B0G4GC97SL" target="_blank" rel="noopener">
+      <div class="cover-wrap"><img src="https://m.media-amazon.com/images/P/B0G4GC97SL.01.LZZZZZZZ.jpg" alt="Orgoglio JUVENTINO - Leggende e Campioni BIANCONERI" loading="lazy" onerror="this.parentElement.classList.add('noimg')"></div>
+      <div class="card-body">
+        <p class="card-title">Orgoglio JUVENTINO - Leggende e Campioni BIANCONERI</p>
+        <span class="card-cta">Vedi su Amazon →</span>
+      </div>
+    </a>
+    <a class="card" href="https://www.amazon.it/dp/B0G3XFT3M7" target="_blank" rel="noopener">
+      <div class="cover-wrap"><img src="https://m.media-amazon.com/images/P/B0G3XFT3M7.01.LZZZZZZZ.jpg" alt="Orgoglio INTERISTA - Leggende e Campioni NERAZZURRI" loading="lazy" onerror="this.parentElement.classList.add('noimg')"></div>
+      <div class="card-body">
+        <p class="card-title">Orgoglio INTERISTA - Leggende e Campioni NERAZZURRI</p>
+        <span class="card-cta">Vedi su Amazon →</span>
+      </div>
+    </a>
+    <a class="card" href="https://www.amazon.it/dp/B0G3GC4GZ8" target="_blank" rel="noopener">
+      <div class="cover-wrap"><img src="https://m.media-amazon.com/images/P/B0G3GC4GZ8.01.LZZZZZZZ.jpg" alt="Orgoglio MILANISTA - Leggende e Campioni ROSSONERI" loading="lazy" onerror="this.parentElement.classList.add('noimg')"></div>
+      <div class="card-body">
+        <p class="card-title">Orgoglio MILANISTA - Leggende e Campioni ROSSONERI</p>
+        <span class="card-cta">Vedi su Amazon →</span>
+      </div>
+    </a>
+    <a class="card" href="https://www.amazon.it/dp/B0G324ZCSY" target="_blank" rel="noopener">
+      <div class="cover-wrap"><img src="https://m.media-amazon.com/images/P/B0G324ZCSY.01.LZZZZZZZ.jpg" alt="100 NUOVI Fatti Incredibili sul Calcio per Veri Tifosi JUVENTINI - 2a Edizione 2025/26" loading="lazy" onerror="this.parentElement.classList.add('noimg')"></div>
+      <div class="card-body">
+        <p class="card-title">100 NUOVI Fatti Incredibili sul Calcio per Veri Tifosi JUVENTINI - 2a Edizione 2025/26</p>
+        <span class="card-cta">Vedi su Amazon →</span>
+      </div>
+    </a>
+    <a class="card" href="https://www.amazon.it/dp/B0G2JJGWVX" target="_blank" rel="noopener">
+      <div class="cover-wrap"><img src="https://m.media-amazon.com/images/P/B0G2JJGWVX.01.LZZZZZZZ.jpg" alt="100 NUOVI Fatti Incredibili sul Calcio per Veri Tifosi INTERISTI - 2a Edizione 2025/26" loading="lazy" onerror="this.parentElement.classList.add('noimg')"></div>
+      <div class="card-body">
+        <p class="card-title">100 NUOVI Fatti Incredibili sul Calcio per Veri Tifosi INTERISTI - 2a Edizione 2025/26</p>
+        <span class="card-cta">Vedi su Amazon →</span>
+      </div>
+    </a>
+    <a class="card" href="https://www.amazon.it/dp/B0G2CP9YJ8" target="_blank" rel="noopener">
+      <div class="cover-wrap"><img src="https://m.media-amazon.com/images/P/B0G2CP9YJ8.01.LZZZZZZZ.jpg" alt="100 NUOVI Fatti Incredibili sul Calcio per Veri Tifosi MILANISTI - 2a Edizione 2025/26" loading="lazy" onerror="this.parentElement.classList.add('noimg')"></div>
+      <div class="card-body">
+        <p class="card-title">100 NUOVI Fatti Incredibili sul Calcio per Veri Tifosi MILANISTI - 2a Edizione 2025/26</p>
+        <span class="card-cta">Vedi su Amazon →</span>
+      </div>
+    </a>
+    <a class="card" href="https://www.amazon.it/dp/B0G24F519M" target="_blank" rel="noopener">
+      <div class="cover-wrap"><img src="https://m.media-amazon.com/images/P/B0G24F519M.01.LZZZZZZZ.jpg" alt="I Grandi CERVELLONI della Storia: Scoperte, Invenzioni e Segreti Incredibili di Menti GENIALI" loading="lazy" onerror="this.parentElement.classList.add('noimg')"></div>
+      <div class="card-body">
+        <p class="card-title">I Grandi CERVELLONI della Storia: Scoperte, Invenzioni e Segreti Incredibili di Menti GENIALI</p>
+        <span class="card-cta">Vedi su Amazon →</span>
+      </div>
+    </a>
+    <a class="card" href="https://www.amazon.it/dp/B0FYVHJNC9" target="_blank" rel="noopener">
+      <div class="cover-wrap"><img src="https://m.media-amazon.com/images/P/B0FYVHJNC9.01.LZZZZZZZ.jpg" alt="Il Genio Del Cosmo - 100 Fatti Incredibili sullo SPAZIO: Misteri Stellari +100 Quiz" loading="lazy" onerror="this.parentElement.classList.add('noimg')"></div>
+      <div class="card-body">
+        <p class="card-title">Il Genio Del Cosmo - 100 Fatti Incredibili sullo SPAZIO: Misteri Stellari +100 Quiz</p>
+        <span class="card-cta">Vedi su Amazon →</span>
+      </div>
+    </a>
+    <a class="card" href="https://www.amazon.it/dp/B0G1HVD8TJ" target="_blank" rel="noopener">
+      <div class="cover-wrap"><img src="https://m.media-amazon.com/images/P/B0G1HVD8TJ.01.LZZZZZZZ.jpg" alt="Idee da Genio - 100 Incredibili INVENZIONI: Scoperte Brillanti +100 Quiz" loading="lazy" onerror="this.parentElement.classList.add('noimg')"></div>
+      <div class="card-body">
+        <p class="card-title">Idee da Genio - 100 Incredibili INVENZIONI: Scoperte Brillanti +100 Quiz</p>
+        <span class="card-cta">Vedi su Amazon →</span>
+      </div>
+    </a>
+    <a class="card" href="https://www.amazon.it/dp/B0FQ3RFPBW" target="_blank" rel="noopener">
+      <div class="cover-wrap"><img src="https://m.media-amazon.com/images/P/B0FQ3RFPBW.01.LZZZZZZZ.jpg" alt="Più Intelligente di Einstein! - 1000 Curiosità e 300 Quiz su Natura, Scienza e Invenzioni" loading="lazy" onerror="this.parentElement.classList.add('noimg')"></div>
+      <div class="card-body">
+        <p class="card-title">Più Intelligente di Einstein! - 1000 Curiosità e 300 Quiz su Natura, Scienza e Invenzioni</p>
+        <span class="card-cta">Vedi su Amazon →</span>
+      </div>
+    </a>
+    <a class="card" href="https://www.amazon.it/dp/B0CJLLNB91" target="_blank" rel="noopener">
+      <div class="cover-wrap"><img src="https://m.media-amazon.com/images/P/B0CJLLNB91.01.LZZZZZZZ.jpg" alt="100 fatti incredibili sul Calcio per veri tifosi Milanisti" loading="lazy" onerror="this.parentElement.classList.add('noimg')"></div>
+      <div class="card-body">
+        <p class="card-title">100 fatti incredibili sul Calcio per veri tifosi Milanisti</p>
+        <span class="card-cta">Vedi su Amazon →</span>
+      </div>
+    </a>
+    <a class="card" href="https://www.amazon.it/dp/B0D49Y8M6Y" target="_blank" rel="noopener">
+      <div class="cover-wrap"><img src="https://m.media-amazon.com/images/P/B0D49Y8M6Y.01.LZZZZZZZ.jpg" alt="100 Record e 100 Curiosità sul Calcio - Edizione Rossoneri" loading="lazy" onerror="this.parentElement.classList.add('noimg')"></div>
+      <div class="card-body">
+        <p class="card-title">100 Record e 100 Curiosità sul Calcio - Edizione Rossoneri</p>
+        <span class="card-cta">Vedi su Amazon →</span>
+      </div>
+    </a>
+    <a class="card" href="https://www.amazon.it/dp/B0D3MCBNF1" target="_blank" rel="noopener">
+      <div class="cover-wrap"><img src="https://m.media-amazon.com/images/P/B0D3MCBNF1.01.LZZZZZZZ.jpg" alt="100 Record e 100 Curiosità sul Basket" loading="lazy" onerror="this.parentElement.classList.add('noimg')"></div>
+      <div class="card-body">
+        <p class="card-title">100 Record e 100 Curiosità sul Basket</p>
+        <span class="card-cta">Vedi su Amazon →</span>
+      </div>
+    </a>
+    <a class="card" href="https://www.amazon.it/dp/B0D229MZ57" target="_blank" rel="noopener">
+      <div class="cover-wrap"><img src="https://m.media-amazon.com/images/P/B0D229MZ57.01.LZZZZZZZ.jpg" alt="100 Record e 100 Curiosità sul Calcio: Per giovani tifosi appassionati" loading="lazy" onerror="this.parentElement.classList.add('noimg')"></div>
+      <div class="card-body">
+        <p class="card-title">100 Record e 100 Curiosità sul Calcio: Per giovani tifosi appassionati</p>
+        <span class="card-cta">Vedi su Amazon →</span>
+      </div>
+    </a>
+    <a class="card" href="https://www.amazon.it/dp/B0CX4TY98Y" target="_blank" rel="noopener">
+      <div class="cover-wrap"><img src="https://m.media-amazon.com/images/P/B0CX4TY98Y.01.LZZZZZZZ.jpg" alt="Io, i miei amici e il calcio. Storie motivazionali ed educative per giovani campioni" loading="lazy" onerror="this.parentElement.classList.add('noimg')"></div>
+      <div class="card-body">
+        <p class="card-title">Io, i miei amici e il calcio. Storie motivazionali ed educative per giovani campioni</p>
+        <span class="card-cta">Vedi su Amazon →</span>
+      </div>
+    </a>
+    <a class="card" href="https://www.amazon.it/dp/B0CYJ9WYR4" target="_blank" rel="noopener">
+      <div class="cover-wrap"><img src="https://m.media-amazon.com/images/P/B0CYJ9WYR4.01.LZZZZZZZ.jpg" alt="100 fatti incredibili sul Calcio per veri tifosi Napoletani" loading="lazy" onerror="this.parentElement.classList.add('noimg')"></div>
+      <div class="card-body">
+        <p class="card-title">100 fatti incredibili sul Calcio per veri tifosi Napoletani</p>
+        <span class="card-cta">Vedi su Amazon →</span>
+      </div>
+    </a>
+    <a class="card" href="https://www.amazon.it/dp/B0CXCRD57F" target="_blank" rel="noopener">
+      <div class="cover-wrap"><img src="https://m.media-amazon.com/images/P/B0CXCRD57F.01.LZZZZZZZ.jpg" alt="100 fatti incredibili sul Calcio per veri tifosi Romanisti" loading="lazy" onerror="this.parentElement.classList.add('noimg')"></div>
+      <div class="card-body">
+        <p class="card-title">100 fatti incredibili sul Calcio per veri tifosi Romanisti</p>
+        <span class="card-cta">Vedi su Amazon →</span>
+      </div>
+    </a>
+    <a class="card" href="https://www.amazon.it/dp/B0CF4FMLBV" target="_blank" rel="noopener">
+      <div class="cover-wrap"><img src="https://m.media-amazon.com/images/P/B0CF4FMLBV.01.LZZZZZZZ.jpg" alt="100 Fatti Incredibili sul Basket" loading="lazy" onerror="this.parentElement.classList.add('noimg')"></div>
+      <div class="card-body">
+        <p class="card-title">100 Fatti Incredibili sul Basket</p>
+        <span class="card-cta">Vedi su Amazon →</span>
+      </div>
+    </a>
+    <a class="card" href="https://www.amazon.it/dp/B0CPCN2QQR" target="_blank" rel="noopener">
+      <div class="cover-wrap"><img src="https://m.media-amazon.com/images/P/B0CPCN2QQR.01.LZZZZZZZ.jpg" alt="100 fatti Incredibili sulla Pallavolo" loading="lazy" onerror="this.parentElement.classList.add('noimg')"></div>
+      <div class="card-body">
+        <p class="card-title">100 fatti Incredibili sulla Pallavolo</p>
+        <span class="card-cta">Vedi su Amazon →</span>
+      </div>
+    </a>
+    <a class="card" href="https://www.amazon.it/dp/B0CDNPRH9Z" target="_blank" rel="noopener">
+      <div class="cover-wrap"><img src="https://m.media-amazon.com/images/P/B0CDNPRH9Z.01.LZZZZZZZ.jpg" alt="100 fatti Incredibili sul Calcio e 50 sulla Champions + 100 curiosità sui Mondiali" loading="lazy" onerror="this.parentElement.classList.add('noimg')"></div>
+      <div class="card-body">
+        <p class="card-title">100 fatti Incredibili sul Calcio e 50 sulla Champions + 100 curiosità sui Mondiali</p>
+        <span class="card-cta">Vedi su Amazon →</span>
+      </div>
+    </a>
+    <a class="card" href="https://www.amazon.it/dp/B0CJXLFDHL" target="_blank" rel="noopener">
+      <div class="cover-wrap"><img src="https://m.media-amazon.com/images/P/B0CJXLFDHL.01.LZZZZZZZ.jpg" alt="100 fatti incredibili sul Calcio per veri tifosi Interisti" loading="lazy" onerror="this.parentElement.classList.add('noimg')"></div>
+      <div class="card-body">
+        <p class="card-title">100 fatti incredibili sul Calcio per veri tifosi Interisti</p>
+        <span class="card-cta">Vedi su Amazon →</span>
+      </div>
+    </a>
+    <a class="card" href="https://www.amazon.it/dp/B0CL9W9J2Z" target="_blank" rel="noopener">
+      <div class="cover-wrap"><img src="https://m.media-amazon.com/images/P/B0CL9W9J2Z.01.LZZZZZZZ.jpg" alt="100 fatti incredibili sul Calcio per veri tifosi Juventini" loading="lazy" onerror="this.parentElement.classList.add('noimg')"></div>
+      <div class="card-body">
+        <p class="card-title">100 fatti incredibili sul Calcio per veri tifosi Juventini</p>
+        <span class="card-cta">Vedi su Amazon →</span>
+      </div>
+    </a>
+    <a class="card" href="https://www.amazon.it/dp/B0CGX7L6W1" target="_blank" rel="noopener">
+      <div class="cover-wrap"><img src="https://m.media-amazon.com/images/P/B0CGX7L6W1.01.LZZZZZZZ.jpg" alt="100 Consigli di Sopravvivenza per Ragazze Adolescenti" loading="lazy" onerror="this.parentElement.classList.add('noimg')"></div>
+      <div class="card-body">
+        <p class="card-title">100 Consigli di Sopravvivenza per Ragazze Adolescenti</p>
+        <span class="card-cta">Vedi su Amazon →</span>
+      </div>
+    </a>
+    <a class="card" href="https://www.amazon.it/dp/B0CGXF3ZXD" target="_blank" rel="noopener">
+      <div class="cover-wrap"><img src="https://m.media-amazon.com/images/P/B0CGXF3ZXD.01.LZZZZZZZ.jpg" alt="100 Consigli di Sopravvivenza per Ragazzi Adolescenti" loading="lazy" onerror="this.parentElement.classList.add('noimg')"></div>
+      <div class="card-body">
+        <p class="card-title">100 Consigli di Sopravvivenza per Ragazzi Adolescenti</p>
+        <span class="card-cta">Vedi su Amazon →</span>
+      </div>
+    </a>
+    <a class="card" href="https://www.amazon.it/dp/B0CHL92TJG" target="_blank" rel="noopener">
+      <div class="cover-wrap"><img src="https://m.media-amazon.com/images/P/B0CHL92TJG.01.LZZZZZZZ.jpg" alt="100 fatti Incredibili Record e Curiosità sul Titanic" loading="lazy" onerror="this.parentElement.classList.add('noimg')"></div>
+      <div class="card-body">
+        <p class="card-title">100 fatti Incredibili Record e Curiosità sul Titanic</p>
+        <span class="card-cta">Vedi su Amazon →</span>
+      </div>
+    </a>
+    <a class="card" href="https://www.amazon.it/dp/B0CJ47XFT6" target="_blank" rel="noopener">
+      <div class="cover-wrap"><img src="https://m.media-amazon.com/images/P/B0CJ47XFT6.01.LZZZZZZZ.jpg" alt="100 Fatti Incredibili sul Big Bang" loading="lazy" onerror="this.parentElement.classList.add('noimg')"></div>
+      <div class="card-body">
+        <p class="card-title">100 Fatti Incredibili sul Big Bang</p>
+        <span class="card-cta">Vedi su Amazon →</span>
+      </div>
+    </a>
+  </div>
+</section>
+<section id="es" class="lang-section">
+  <h2 class="lang-title">🇪🇸 Español <span class="count">10 libri</span></h2>
+  <div class="grid">
+    <a class="card" href="https://www.amazon.es/dp/B0GXVHRBY9" target="_blank" rel="noopener">
+      <div class="cover-wrap"><img src="https://m.media-amazon.com/images/P/B0GXVHRBY9.01.LZZZZZZZ.jpg" alt="El Sueño Mundial de un Niño de La Roja: Una Historia de Fútbol para Jóvenes Aficionados 8-12 años" loading="lazy" onerror="this.parentElement.classList.add('noimg')"></div>
+      <div class="card-body">
+        <p class="card-title">El Sueño Mundial de un Niño de La Roja: Una Historia de Fútbol para Jóvenes Aficionados 8-12 años</p>
+        <span class="card-cta">Vedi su Amazon →</span>
+      </div>
+    </a>
+    <a class="card" href="https://www.amazon.es/dp/B0GW5M94R5" target="_blank" rel="noopener">
+      <div class="cover-wrap"><img src="https://m.media-amazon.com/images/P/B0GW5M94R5.01.LZZZZZZZ.jpg" alt="Mundial 2026 - La Guía Completa de la Copa del Mundo de Fútbol" loading="lazy" onerror="this.parentElement.classList.add('noimg')"></div>
+      <div class="card-body">
+        <p class="card-title">Mundial 2026 - La Guía Completa de la Copa del Mundo de Fútbol</p>
+        <span class="card-cta">Vedi su Amazon →</span>
+      </div>
+    </a>
+    <a class="card" href="https://www.amazon.es/dp/B0GTVNLBVB" target="_blank" rel="noopener">
+      <div class="cover-wrap"><img src="https://m.media-amazon.com/images/P/B0GTVNLBVB.01.LZZZZZZZ.jpg" alt="El Sueño de un Niño Madridista: La Magia del Fútbol y el deseo de Diego" loading="lazy" onerror="this.parentElement.classList.add('noimg')"></div>
+      <div class="card-body">
+        <p class="card-title">El Sueño de un Niño Madridista: La Magia del Fútbol y el deseo de Diego</p>
+        <span class="card-cta">Vedi su Amazon →</span>
+      </div>
+    </a>
+    <a class="card" href="https://www.amazon.es/dp/B0FQTB25P8" target="_blank" rel="noopener">
+      <div class="cover-wrap"><img src="https://m.media-amazon.com/images/P/B0FQTB25P8.01.LZZZZZZZ.jpg" alt="Mas inteligente que Einstein! - 1000 Datos Curiosos y 300 Cuestionarios" loading="lazy" onerror="this.parentElement.classList.add('noimg')"></div>
+      <div class="card-body">
+        <p class="card-title">Mas inteligente que Einstein! - 1000 Datos Curiosos y 300 Cuestionarios</p>
+        <span class="card-cta">Vedi su Amazon →</span>
+      </div>
+    </a>
+    <a class="card" href="https://www.amazon.es/dp/B0D2J8T7CC" target="_blank" rel="noopener">
+      <div class="cover-wrap"><img src="https://m.media-amazon.com/images/P/B0D2J8T7CC.01.LZZZZZZZ.jpg" alt="100 Records y 100 Curiosidades del Fútbol: para niños apasionados" loading="lazy" onerror="this.parentElement.classList.add('noimg')"></div>
+      <div class="card-body">
+        <p class="card-title">100 Records y 100 Curiosidades del Fútbol: para niños apasionados</p>
+        <span class="card-cta">Vedi su Amazon →</span>
+      </div>
+    </a>
+    <a class="card" href="https://www.amazon.es/dp/B0CXSGQCWK" target="_blank" rel="noopener">
+      <div class="cover-wrap"><img src="https://m.media-amazon.com/images/P/B0CXSGQCWK.01.LZZZZZZZ.jpg" alt="100 hechos Increíbles sobre el Fútbol para hinchas Colchoneros - Atleti" loading="lazy" onerror="this.parentElement.classList.add('noimg')"></div>
+      <div class="card-body">
+        <p class="card-title">100 hechos Increíbles sobre el Fútbol para hinchas Colchoneros - Atleti</p>
+        <span class="card-cta">Vedi su Amazon →</span>
+      </div>
+    </a>
+    <a class="card" href="https://www.amazon.es/dp/B0CPXLBSX6" target="_blank" rel="noopener">
+      <div class="cover-wrap"><img src="https://m.media-amazon.com/images/P/B0CPXLBSX6.01.LZZZZZZZ.jpg" alt="100 hechos Increíbles sobre el Fútbol para hinchas Blaugranas - Barça" loading="lazy" onerror="this.parentElement.classList.add('noimg')"></div>
+      <div class="card-body">
+        <p class="card-title">100 hechos Increíbles sobre el Fútbol para hinchas Blaugranas - Barça</p>
+        <span class="card-cta">Vedi su Amazon →</span>
+      </div>
+    </a>
+    <a class="card" href="https://www.amazon.es/dp/B0CPQ18WJQ" target="_blank" rel="noopener">
+      <div class="cover-wrap"><img src="https://m.media-amazon.com/images/P/B0CPQ18WJQ.01.LZZZZZZZ.jpg" alt="100 hechos Increíbles sobre el Fútbol para hinchas Madridistas" loading="lazy" onerror="this.parentElement.classList.add('noimg')"></div>
+      <div class="card-body">
+        <p class="card-title">100 hechos Increíbles sobre el Fútbol para hinchas Madridistas</p>
+        <span class="card-cta">Vedi su Amazon →</span>
+      </div>
+    </a>
+    <a class="card" href="https://www.amazon.es/dp/B0CGCF5GXZ" target="_blank" rel="noopener">
+      <div class="cover-wrap"><img src="https://m.media-amazon.com/images/P/B0CGCF5GXZ.01.LZZZZZZZ.jpg" alt="100 Hechos Increibles Sobre El Futbol Y 100 Curiosidades Sobre La Copa Del Mundo" loading="lazy" onerror="this.parentElement.classList.add('noimg')"></div>
+      <div class="card-body">
+        <p class="card-title">100 Hechos Increibles Sobre El Futbol Y 100 Curiosidades Sobre La Copa Del Mundo</p>
+        <span class="card-cta">Vedi su Amazon →</span>
+      </div>
+    </a>
+    <a class="card" href="https://www.amazon.es/dp/B0CJLL2BFM" target="_blank" rel="noopener">
+      <div class="cover-wrap"><img src="https://m.media-amazon.com/images/P/B0CJLL2BFM.01.LZZZZZZZ.jpg" alt="100 Hechos Increíbles sobre el Baloncesto" loading="lazy" onerror="this.parentElement.classList.add('noimg')"></div>
+      <div class="card-body">
+        <p class="card-title">100 Hechos Increíbles sobre el Baloncesto</p>
+        <span class="card-cta">Vedi su Amazon →</span>
+      </div>
+    </a>
+  </div>
+</section>
+<section id="en" class="lang-section">
+  <h2 class="lang-title">🇬🇧 English <span class="count">2 libri</span></h2>
+  <div class="grid">
+    <a class="card" href="https://www.amazon.com/dp/B0GW1ZSBH8" target="_blank" rel="noopener">
+      <div class="cover-wrap"><img src="https://m.media-amazon.com/images/P/B0GW1ZSBH8.01.LZZZZZZZ.jpg" alt="World Cup 2026 - The Ultimate Guide Soccer&#x27;s Biggest Tournament" loading="lazy" onerror="this.parentElement.classList.add('noimg')"></div>
+      <div class="card-body">
+        <p class="card-title">World Cup 2026 - The Ultimate Guide Soccer&#x27;s Biggest Tournament</p>
+        <span class="card-cta">Vedi su Amazon →</span>
+      </div>
+    </a>
+    <a class="card" href="https://www.amazon.com/dp/B0FR9VM99G" target="_blank" rel="noopener">
+      <div class="cover-wrap"><img src="https://m.media-amazon.com/images/P/B0FR9VM99G.01.LZZZZZZZ.jpg" alt="Brighter Than Einstein! - 1000 Amazing Facts, 300 Fun Quizzes, Science Adventure" loading="lazy" onerror="this.parentElement.classList.add('noimg')"></div>
+      <div class="card-body">
+        <p class="card-title">Brighter Than Einstein! - 1000 Amazing Facts, 300 Fun Quizzes, Science Adventure</p>
+        <span class="card-cta">Vedi su Amazon →</span>
+      </div>
+    </a>
+  </div>
+</section>
+<section id="de" class="lang-section">
+  <h2 class="lang-title">🇩🇪 Deutsch <span class="count">4 libri</span></h2>
+  <div class="grid">
+    <a class="card" href="https://www.amazon.de/dp/B0FQJ9MDV1" target="_blank" rel="noopener">
+      <div class="cover-wrap"><img src="https://m.media-amazon.com/images/P/B0FQJ9MDV1.01.LZZZZZZZ.jpg" alt="Schlauer als Einstein! - 1000 Spannende Fakten und 300 Quizfragen" loading="lazy" onerror="this.parentElement.classList.add('noimg')"></div>
+      <div class="card-body">
+        <p class="card-title">Schlauer als Einstein! - 1000 Spannende Fakten und 300 Quizfragen</p>
+        <span class="card-cta">Vedi su Amazon →</span>
+      </div>
+    </a>
+    <a class="card" href="https://www.amazon.de/dp/B0CXMRFL68" target="_blank" rel="noopener">
+      <div class="cover-wrap"><img src="https://m.media-amazon.com/images/P/B0CXMRFL68.01.LZZZZZZZ.jpg" alt="100 Unglaubliche Fakten Uber Fusball Fur Echte BVB-Fans" loading="lazy" onerror="this.parentElement.classList.add('noimg')"></div>
+      <div class="card-body">
+        <p class="card-title">100 Unglaubliche Fakten Uber Fusball Fur Echte BVB-Fans</p>
+        <span class="card-cta">Vedi su Amazon →</span>
+      </div>
+    </a>
+    <a class="card" href="https://www.amazon.de/dp/B0CXT12L1Y" target="_blank" rel="noopener">
+      <div class="cover-wrap"><img src="https://m.media-amazon.com/images/P/B0CXT12L1Y.01.LZZZZZZZ.jpg" alt="100 Unglaubliche Fakten Uber Fusball Fur Echte Bayern-Fans" loading="lazy" onerror="this.parentElement.classList.add('noimg')"></div>
+      <div class="card-body">
+        <p class="card-title">100 Unglaubliche Fakten Uber Fusball Fur Echte Bayern-Fans</p>
+        <span class="card-cta">Vedi su Amazon →</span>
+      </div>
+    </a>
+    <a class="card" href="https://www.amazon.de/dp/B0CP5L1VCC" target="_blank" rel="noopener">
+      <div class="cover-wrap"><img src="https://m.media-amazon.com/images/P/B0CP5L1VCC.01.LZZZZZZZ.jpg" alt="100 Unglaubliche fakten über Basketball" loading="lazy" onerror="this.parentElement.classList.add('noimg')"></div>
+      <div class="card-body">
+        <p class="card-title">100 Unglaubliche fakten über Basketball</p>
+        <span class="card-cta">Vedi su Amazon →</span>
+      </div>
+    </a>
+  </div>
+</section>
+<section id="fr" class="lang-section">
+  <h2 class="lang-title">🇫🇷 Français <span class="count">1 libri</span></h2>
+  <div class="grid">
+    <a class="card" href="https://www.amazon.fr/dp/B0CQ6WQR6S" target="_blank" rel="noopener">
+      <div class="cover-wrap"><img src="https://m.media-amazon.com/images/P/B0CQ6WQR6S.01.LZZZZZZZ.jpg" alt="100 faits Incroyables sur le Basket" loading="lazy" onerror="this.parentElement.classList.add('noimg')"></div>
+      <div class="card-body">
+        <p class="card-title">100 faits Incroyables sur le Basket</p>
+        <span class="card-cta">Vedi su Amazon →</span>
+      </div>
+    </a>
+  </div>
+</section>
+</main>
+
+<footer>
+  Segui <a href="https://www.instagram.com/gerlypizza_edizioni/" target="_blank" rel="noopener">@gerlypizza_edizioni</a> su Instagram ⚽📖
+</footer>
+</body>
+</html>
